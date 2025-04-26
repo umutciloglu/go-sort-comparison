@@ -1,17 +1,22 @@
 # Algorithm Analysis Report
 
- For more information you can check out the github repository https://github.com/umutciloglu/go-sort-comparison
+ To generate a report install dependencies by running `go mod tidy` then run `go run main.go`.
+
+ If you wish to compile a binary executable you can do so by running the `go build main.go` command.
+
+ Doing so would generate a comprarion report for Merge, Heap, Selection, Quick sort algorithms and a comparison for Binary and Exponential seach algorithms. Generated algorithm can be viewed in [Report](/algorithm_analysis_report.md) in markdown format.
+
 
 ## Performance Comparison
 
 | Algorithm | Time Complexity | N = 1,000 | N = 10,000 | N = 100,000 | N = 1,000,000 |
 |-----------|----------------|-----------|------------|-------------|-------------|
-| Merge Sort | O(n log n) | 207.375µs | 2.208292ms | 20.631917ms | 92.091958ms |
-| Heap Sort | O(n log n) | 42.666µs | 537.042µs | 7.077166ms | 91.263875ms |
-| Selection Sort | O(n²) | 284.166µs | 25.334ms | 2.521276958s | 4m16.645789084s |
-| Quick Sort | O(n log n) | 33.542µs | 389.041µs | 4.574917ms | 52.373625ms |
-| Binary Search | O(log n) | 84ns | 0s | 0s | 0s |
-| Exponential Search | O(log n) | 542ns | 42ns | 0s | 42ns |
+| Merge Sort | O(n log n) | 57.542µs | 704.041µs | 8.377875ms | 83.2615ms |
+| Heap Sort | O(n log n) | 45.042µs | 591.916µs | 7.116291ms | 91.607708ms |
+| Selection Sort | O(n²) | 298.417µs | 25.904791ms | 2.531950459s | 4m21.222088375s |
+| Quick Sort | O(n log n) | 162.5µs | 1.604959ms | 9.650334ms | 68.892167ms |
+| Binary Search | O(log n) | 83ns | 42ns | 42ns | 1.75µs |
+| Exponential Search | O(log n) | 41ns | 0s | 333ns | 42ns |
 
 ## Hardware Information
 

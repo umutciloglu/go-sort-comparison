@@ -7,6 +7,8 @@ import (
 	"runtime"
 	"sort"
 	"time"
+
+	. "github.com/klauspost/cpuid/v2"
 )
 
 // Generate a random array of n integers
@@ -262,11 +264,18 @@ func testSearchAlgorithm(name string, algorithm func([]int, int) int, sizes []in
 }
 
 func getSystemInfo() string {
-	return fmt.Sprintf("- Go Version: %s\n- OS: %s\n- Architecture: %s\n- CPUs: %d\n",
+	return fmt.Sprintf("- Go Version: %s\n- OS: %s\n- Architecture: %s\n- CPU Name: %s\n- CPU Physical Cores: %d\n- CPU Logical Cores: %d\n- CPU Threads per Core: %d\n- CPU L1 Data Cache: %d bytes\n- CPU L1 Instruction Cache: %d bytes\n- CPU L2 Cache: %d bytes\n- CPU L3 Cache: %d bytes\n",
 		runtime.Version(),
 		runtime.GOOS,
 		runtime.GOARCH,
-		runtime.NumCPU())
+		CPU.BrandName,
+		CPU.PhysicalCores,
+		CPU.LogicalCores,
+		CPU.ThreadsPerCore,
+		CPU.Cache.L1D,
+		CPU.Cache.L1I,
+		CPU.Cache.L2,
+		CPU.Cache.L3)
 }
 
 func main() {
@@ -323,6 +332,7 @@ func main() {
 
 	// Write report header
 	file.WriteString("# Algorithm Analysis Report\n\n")
+	file.WriteString(" For more information you can check out the github repository https://github.com/umutciloglu/go-sort-comparison\n\n")
 	file.WriteString("## Performance Comparison\n\n")
 
 	// Write table header
